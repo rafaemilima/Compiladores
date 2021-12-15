@@ -33,7 +33,7 @@ RESE_PARE
 RESE_LER
 RESE_ESCREVER
 
-operadores
+Operadores
 
 OPE_ADI +
 OPE_SUB - 
@@ -67,9 +67,19 @@ for word in source_code:
     
     # This will check if a token has datatype decleration
 
+    delimiters = ['Initiate', 'Halt']
     reserved = ['Central', 'Funcao', 'Retorna', 'Int', 'Str', 'Float'
     ,'Char', 'Bool', 'Array', 'Verdadeiro', 'Falso', 'Se', 'SeNao',
      'Loop', 'Enquanto', 'Nulo', 'Pare', 'Ler', 'Escrever']
+
+    operators =['+', '-', '*', '/', '%', '^', '-'  #aritmeticos
+                '==','!=', '<', '>', '<=', '>=',    #relacionais
+                '!','E', 'Ou'                      #logicos 
+                ,'@']                               #concatenação
+
+
+
+
 
     if word in reserved: 
         tokens.append(['RESERVED', word])
