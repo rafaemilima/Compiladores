@@ -81,17 +81,29 @@ for word in source_code:
 
 
 
-    if word in reserved: 
-        tokens.append(['RESERVED', word])
+    if word in reserved:
+        if word == 'Verdadeiro'|word == 'Falso':
+            tokens.append(['BOOL', word])
+        else: 
+            tokens.append(['RESE', word])
     
+    elif word in delimiters:
+        tokens.append(['DELI', word])
+
     # This will look for an identifier which would be just a word
     elif re.match("[a-z]", word) or re.match("[A-Z]", word):
-        tokens.append(['IDENTIFIER', word])
+        tokens.append(['ID', word])
     
     # This will look for an operator
-    elif word in '*-/+%=':
-        tokens.append(['OPERATOR', word])
+    elif word in operators:
+        tokens.append(['OPE', word])
     
+
+
+
+
+
+
     # This will look for integer items and cast them as a number
     elif re.match(".[0-9]", word):
         if word[len(word) - 1] == ';': 
