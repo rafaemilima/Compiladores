@@ -1,6 +1,10 @@
 '''
 tokens:
 
+identificadores
+
+ID
+
 delimitadores
 
 DELI_INITIATE  
@@ -29,7 +33,7 @@ RESE_PARE
 RESE_LER
 RESE_ESCREVER
 
-#operadores
+operadores
 
 OPE_ADI +
 OPE_SUB - 
