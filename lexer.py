@@ -55,15 +55,17 @@ OPE_CONCAT @
 '''
 
 
+cod = "Funcao Int Central () Initiate Halt"
+
 
 
 import re                                 # for performing regex expressions
 
 tokens = []                               # for string tokens
-source_code = 'int result = 100;'.split() # turning source code into list of words
+source_code = cod.split() # turning source code into list of words
 
 # Loop through each source code word
-for word in source_code:
+for char in source_code:
     
     # This will check if a token has datatype decleration
 
@@ -79,24 +81,19 @@ for word in source_code:
 
 
 
-
-
-    if word in reserved:
-        if word == 'Verdadeiro'|word == 'Falso':
-            tokens.append(['BOOL', word])
-        else: 
-            tokens.append(['RESE', word])
+    if char in reserved:       
+        tokens.append(['RESE', char])
     
-    elif word in delimiters:
-        tokens.append(['DELI', word])
+    elif char in delimiters:
+        tokens.append(['DELI', char])
 
     # This will look for an identifier which would be just a word
-    elif re.match("[a-z]", word) or re.match("[A-Z]", word):
-        tokens.append(['ID', word])
+    elif re.match("[a-z]", char) or re.match("[A-Z]", char):
+        tokens.append(['ID', char])
     
     # This will look for an operator
-    elif word in operators:
-        tokens.append(['OPE', word])
+    elif char in operators:
+        tokens.append(['OPE', char])
     
 
 
@@ -105,11 +102,11 @@ for word in source_code:
 
 
     # This will look for integer items and cast them as a number
-    elif re.match(".[0-9]", word):
-        if word[len(word) - 1] == ';': 
-            tokens.append(["INTEGER", word[:-1]])
+    elif re.match(".[0-9]", char):
+        if char[len(char) - 1] == ';': 
+            tokens.append(["INTEGER", char[:-1]])
             tokens.append(['END_STATEMENT', ';'])
         else: 
-            tokens.append(["INTEGER", word])
+            tokens.append(["INTEGER", char])
 
 print(tokens) # Outputs the token array
