@@ -5,7 +5,7 @@ import re
 from typing import Dict                                 # for performing regex expressions
 
 tokens = []                               # for string tokens
-source_code = cod.split() # turning source code into list of words
+line = cod.split() # turning source code into list of words
 
 
 Dict_reserved = {'Central' : "RESE_CENTRAL",
@@ -28,11 +28,9 @@ Dict_reserved = {'Central' : "RESE_CENTRAL",
             "Ler": "RESE_LER",
             "Escrever": "RESE_ESCREVER"}
 
-# Loop through each source code word
-for char in source_code:
+for char in line:
     
-    # This will check if a token has datatype decleration
-
+    state = 0
     delimiters = ['Initiate', 'Halt']
     reserved = ['Central', 'Funcao', 'Retorna', 'Int', 'Str', 'Float'
     ,'Char', 'Bool', 'Array', 'Verdadeiro', 'Falso', 'Se', 'SeNao',
@@ -43,6 +41,15 @@ for char in source_code:
                 '!','E', 'Ou'                      #logicos 
                 ,'@']                               #concatenação
 
+
+
+    if(state == 0):
+        if(char == ''):
+            state = 0
+        elif(char.isupper()):
+            state = 1
+
+    
 
 
     if char in reserved:       
