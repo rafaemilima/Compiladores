@@ -1,0 +1,5 @@
+Funcao Int Central() Initiate
+
+    Escrever('paragua')
+
+Halt
