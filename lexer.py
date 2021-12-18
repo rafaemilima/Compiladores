@@ -1,78 +1,32 @@
-'''
-tokens:
 
-identificadores
+cod = "Funcao Int Central () Initiate x = 12; Halt"
 
-ID
-
-delimitadores
-
-DELI_INITIATE  
-DELI_HALT
-
-
-Palavras reservadas
-
-RESE_CENTRAL
-RESE_FUNCAO
-RESE_RETORNA
-RESE_INT
-RESE_STR
-RESE_FLOAT
-RESE_CHAR
-RESE_BOOL
-RESE_ARRAY
-BOOL_VERDADE
-BOOL_FALSO
-RESE_SE
-RESE_SENAO
-RESE_LOOP
-RESE_ENQUANTO
-RESE_NULO
-RESE_PARE
-RESE_LER
-RESE_ESCREVER
-
-Operadores
-
-OPE_ADI +
-OPE_SUB - 
-OPE_MULTI *
-OPE_DIVI /
-OPE_REST %
-OPE_EXPO ^
-OPE_UNARYNEG -
-OPE_IGUAL ==
-OPE_DIF !=
-OPE_MENORQ <
-OPE_MAIORQ >
-OPE_MENORI <=
-OPE_MAIORI >=
-OPE_NEGA !
-OPE_CONJUN 'E'
-OPE_DISJUN 'OU'
-OPE_CONCAT @
-
-CONSTANTES
-
-CTE_INT
-CTE_FLO
-CTE_STR
-CTE_CHR
-CTR_BOOL
-
-
-'''
-
-
-cod = "Funcao Int Central () Initiate x = 12 Halt"
-
-
-
-import re                                 # for performing regex expressions
+import re
+from typing import Dict                                 # for performing regex expressions
 
 tokens = []                               # for string tokens
 source_code = cod.split() # turning source code into list of words
+
+
+Dict_reserved = {'Central' : "RESE_CENTRAL",
+            'Funcao'  : "RESE_FUNCAO",
+            'Retorna' : "RESE_RETORNA",
+            'Int' : "RESE_INT",
+            'Str' : "RESE_STR",
+            'Float':"RESE_FLOAT",
+            'Char': "RESE_CHAR",
+            'Bool' : "RESE_BOOL",
+            "Array": "RESE_ARRAY",
+            'Verdade': "RESE_VERDADE",
+            'Falso': "RESE_FALSO",
+            'Se': "RESE_SE",
+            'SeNao': "RESE_SENAO",
+            'Loop': "RESE_LOOP",
+            "Enquanto": "RESE_ENQUANTO",
+            "Nulo": "RESE_NULO",
+            "Pare": "RESE_PARE",
+            "Ler": "RESE_LER",
+            "Escrever": "RESE_ESCREVER"}
 
 # Loop through each source code word
 for char in source_code:
@@ -92,7 +46,7 @@ for char in source_code:
 
 
     if char in reserved:       
-        tokens.append(['RESE', char])
+        tokens.append([Dict_reserved[char], char])
     
     elif char in delimiters:
         tokens.append(['DELI', char])
