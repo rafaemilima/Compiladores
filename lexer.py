@@ -52,10 +52,20 @@ OPE_NEGA !
 OPE_CONJUN 'E'
 OPE_DISJUN 'OU'
 OPE_CONCAT @
+
+CONSTANTES
+
+CTE_INT
+CTE_FLO
+CTE_STR
+CTE_CHR
+CTR_BOOL
+
+
 '''
 
 
-cod = "Funcao Int Central () Initiate Halt"
+cod = "Funcao Int Central () Initiate x = 12 Halt"
 
 
 
@@ -95,16 +105,10 @@ for char in source_code:
     elif char in operators:
         tokens.append(['OPE', char])
     
-
-
-
-
-
-
     # This will look for integer items and cast them as a number
     elif re.match(".[0-9]", char):
         if char[len(char) - 1] == ';': 
-            tokens.append(["INTEGER", char[:-1]])
+            tokens.append(["RESE_INT", char[:-1]])
             tokens.append(['END_STATEMENT', ';'])
         else: 
             tokens.append(["INTEGER", char])
