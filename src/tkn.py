@@ -7,4 +7,4 @@ class Token():
         self.col = col
 
     def toString(self):
-        return f"[{self.row - 1},{self.col}] ({self.category[1]}, {self.category[0]}) {{{self.lexem}}}"
+        return f"              [{self.row - 1},{self.col}] ({self.category[1]}, {self.category[0]}) {{{self.lexem}}}"
