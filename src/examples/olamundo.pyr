@@ -1,5 +1,5 @@
 Funcao Int Central() Initiate
 
-    Escrever('Ola mundo!')
+    Escrever('Alô mundo!')
 
 Halt
