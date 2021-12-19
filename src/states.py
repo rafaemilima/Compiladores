@@ -37,7 +37,7 @@ class StateZero(State):
             self.lexer.lexem += curr_char
             self.lexer.state = 11
 
-        elif curr_char == '#':
+        elif curr_char == '§':
             self.lexer.lexem += curr_char
             self.lexer.state = 13
 
