@@ -44,12 +44,12 @@ class StateZero(State):
         elif curr_char in ['+', '-', '*', '/', '%', '¬', '@']:
             self.lexer.lexem += curr_char
             self.lexer.col += 1
-            return Token(ReservedDict.operators[curr_char][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+            return Token(ReservedDict.operators[curr_char], self.lexer.lexem, self.lexer.row, self.lexer.col)
 
         elif curr_char in ['(', ')', '[', ']', ';', ',']:
             self.lexer.lexem += curr_char
             self.lexer.col += 1
-            return Token(ReservedDict.delimiters[curr_char][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+            return Token(ReservedDict.delimiters[curr_char], self.lexer.lexem, self.lexer.row, self.lexer.col)
 
         else:
             Token(ReservedDict.errors['ERR_UNK'], self.lexer.lexem, self.lexer.row, self.lexer.col)
@@ -132,10 +132,10 @@ class StateSeven(State):
 
             if curr_char == '=':
                 self.lexer.lexem += curr_char
-                return Token(ReservedDict.operators['OPE_MAIORI'][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+                return Token(ReservedDict.operators['OPE_MAIORI'], self.lexer.lexem, self.lexer.row, self.lexer.col)
             else:
                 self.lexer.back()
-                return Token(ReservedDict.operators['>'][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+                return Token(ReservedDict.operators['>'], self.lexer.lexem, self.lexer.row, self.lexer.col)
 
         elif curr_char == '<':
 
@@ -144,10 +144,10 @@ class StateSeven(State):
 
             if curr_char == '=':
                 self.lexer.lexem += curr_char
-                return Token(ReservedDict.operators['OPE_MENORI'][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+                return Token(ReservedDict.operators['OPE_MENORI'], self.lexer.lexem, self.lexer.row, self.lexer.col)
             else:
                 self.lexer.back()
-                return Token(ReservedDict.operators['<'][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+                return Token(ReservedDict.operators['<'], self.lexer.lexem, self.lexer.row, self.lexer.col)
 
         elif curr_char == '!' or curr_char == '=':
             curr_char = self.lexer.getNextChar()
@@ -155,10 +155,10 @@ class StateSeven(State):
 
             if curr_char == '=':
                 self.lexer.lexem += curr_char
-                return Token(ReservedDict.operators['OPE_RELA'][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+                return Token(ReservedDict.operators['OPE_RELA'], self.lexer.lexem, self.lexer.row, self.lexer.col)
             else:
                 self.lexer.back()
-                return Token(ReservedDict.operators['!'][1], self.lexer.lexem, self.lexer.row, self.lexer.col)
+                return Token(ReservedDict.operators['!'], self.lexer.lexem, self.lexer.row, self.lexer.col)
 
         else:
             Token(ReservedDict.errors['ERR_UNK'], self.lexer.lexem, self.lexer.row, self.lexer.col)
@@ -220,7 +220,7 @@ class StateTwelve(State):
         self.lexer.col += 1
 
         if ReservedDict.reservedWords[self.lexer.lexem][1] is not None:
-            return Token(ReservedDict.reservedWords[self.lexer.lexem][1], self.lexer.lexem, self.lexer.row,
+            return Token(ReservedDict.reservedWords[self.lexer.lexem], self.lexer.lexem, self.lexer.row,
                          self.lexer.col)
         else:
             return Token(ReservedDict.errors["ERR_PR"], self.lexer.lexem, self. lexer.row, self.lexer.col)

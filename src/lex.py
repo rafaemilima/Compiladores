@@ -23,7 +23,7 @@ class Lexer:
         self.pos += 1
         return self.content[self.pos - 1]
 
-    def getNextToken(self):
+    def nextToken(self):
         self.state = 0
         self.lexem = ""
         while True:
