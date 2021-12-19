@@ -219,19 +219,14 @@ class StateTwelve(State):
         self.lexer.back()
         self.lexer.col += 1
 
-        if ReservedDict.reservedWords[self.lexer.lexem] is not None:
-            return Token(ReservedDict.reservedWords[self.lexer.lexem], self.lexer.lexem, self.lexer.row,
+        if ReservedDict.reservedWords[self.lexer.lexem][1] is not None:
+            return Token(ReservedDict.reservedWords[self.lexer.lexem][1], self.lexer.lexem, self.lexer.row,
                          self.lexer.col)
         else:
             return Token(ReservedDict.errors["ERR_PR"], self.lexer.lexem, self. lexer.row, self.lexer.col)
             self.lexer.back()
             self.lexer.col += 1
 
-            if WordDict.words[lexem] is not None:
-                return Token(ReservedDict.reservedWords[self.lexer.lexem], self.lexer.lexem, self.lexer.row,
-                             self.lexer.col)
-            else:
-                return Token(ReservedDict.errors["ERR_PR"], self.lexer.lexem, self.lexer.row, self.lexer.col)
 
 
 class StateThirteen(State):
