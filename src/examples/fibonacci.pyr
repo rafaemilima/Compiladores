@@ -1,0 +1,18 @@
+Funcao Int fibonacci(Int n) Initiate
+	Se(n <= 1) Initiate
+		Retorna n;
+	Halt
+
+	Retorna fibonacci(n - 1) + fibonacci(n - 2);
+
+Halt
+
+
+Funcao Int Central() Initiate
+
+    Int n;
+    Escrever('Informe a quantidade desejada de termos da sequência');
+    Ler(n);
+    Escrever(fibonacci(n);
+
+Halt
