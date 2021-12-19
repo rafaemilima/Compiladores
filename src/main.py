@@ -6,6 +6,6 @@ token = Lexer(sys.argv[1])
 
 while not token.isEOF():
 
-    currTkn = token.getNextToken()
+    currTkn = token.nextToken()
 
     print(currTkn.toString())
