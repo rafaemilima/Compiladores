@@ -1,31 +1,31 @@
 Funcao Vazio shellsort(Int array[ ], Int n) Initiate
 		Int c, j;
-        Int h = 1;
+        Int m = 1;
 
-        Enquanto (h < n) Initiate
-			h = h * 3 + 1;
+        Enquanto (m < n) Initiate
+			m = m * 3 + 1;
 		Halt
 
-		h = h / 3;
+		m = m / 3;
 
-		Enquanto(h > 0) Initiate
+		Enquanto(m > 0) Initiate
 
-			Loop (Int i = h, 1, n) Initiate
+			Loop (Int i = m, 1, n) Initiate
 
                     c = array[i];
                     j = i;
 
-                    Enquanto (j >= h E array[j - h] > c) Initiate
+                    Enquanto (j >= m E array[j - m] > c) Initiate
 
-                            array[j] = array[j - h];
-                            j = j - h;
+                            array[j] = array[j - m];
+                            j = j - m;
 
                     Halt
 
                     array[j] = c;
 			Halt
 
-			h = h / 2;
+			m = m / 2;
         
 		Halt
 
@@ -34,7 +34,7 @@ Funcao Vazio shellsort(Int array[ ], Int n) Initiate
 	Halt
 
 Funcao Int Central() Initiate
-		Int n, current;
+		Int n, atual;
 		Escrever('Tamanho do array: ');
 		Ler(n);
 
@@ -46,11 +46,11 @@ Funcao Int Central() Initiate
 	        Ler(array[i]);
         Halt
 
-        Escrever('Valores adicionados: ');
+        Escrever('Array: ');
 
         Loop (Int i = 0, 1, n) Initiate
-            current = array[i];
-	        Escreverpl(current);
+            atual = array[i];
+	        Escreverpl(atual);
         Halt
 
 		shellsort(array[n], n);
@@ -58,8 +58,8 @@ Funcao Int Central() Initiate
 		Escrever('Valores ordenados: ');
 
         Loop (Int i = 0, 1, n) Initiate
-            current = array[i];
-	        Escreverpl(current);
+            atual = array[i];
+	        Escreverpl(atual);
         Halt
 
 		Retorna;
