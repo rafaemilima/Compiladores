@@ -9,5 +9,4 @@ class Token():
 
     def toString(self):
         printmessage = "              [{:>4}, {:>4}] ({:>4}, {:>20}) (" +self.lexem+")"
-        print(printmessage.format(self.row - 1, self.col, self.num, self.category))
-        #return f"              [{self.row - 1}, {self.col}] ({self.category[1]}, {self.category[0]}) {{{self.lexem}}}"
+        return (printmessage.format(self.row - 1, self.col, self.num, self.category))
